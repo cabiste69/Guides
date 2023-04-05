@@ -1,0 +1,1 @@
+Uninstall google chrome

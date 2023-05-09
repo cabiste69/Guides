@@ -1,0 +1,1 @@
+This guide will be an attempt at simplifying the official arch linux installation guide

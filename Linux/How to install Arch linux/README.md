@@ -1,1 +1,1 @@
-This guide will be an attempt at simplifying the official arch linux installation guide
+This guide will be an attempt at simplifying the [official arch linux installation guide](https://wiki.archlinux.org/title/installation_guide)

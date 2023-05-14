@@ -5,12 +5,12 @@
 
 - [Github](https://github.com) account
 - [Railway.app](https://railway.app?referralCode=V3mmKK) account
-- a cup of water (dehydration is bad)
+- A cup of water (stay hydrated)
 
 
 # 1. Prepare the C# project
 
-For this guide we're gonna be using [docker](https://www.docker.com/) and if you don't know what thatis or how to use it then don't worry since it's very easy.
+For this guide we're gonna be using [docker](https://www.docker.com/), if you don't know what that is or how to use it then don't worry since it's very easy.
 
 *Note: I'll be using my own Portfolio project as an example here*
 
@@ -19,13 +19,14 @@ For this guide we're gonna be using [docker](https://www.docker.com/) and if you
 2. Open the file and paste this
 
 ```docker
+# Build stage
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /source
 COPY . .
 RUN dotnet restore "src/Portfolio/Portfolio.csproj" --disable-parallel
 RUN dotnet publish "src/Portfolio/Portfolio.csproj" -c release -o /app --no-restore
 
-# Serve Stage
+# Serve stage
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
 COPY --from=build /app ./
@@ -33,8 +34,8 @@ COPY --from=build /app ./
 ENTRYPOINT ["dotnet", "Portfolio.dll"]
 ```
    - Note 1: code snippet *borrowed* from [here](https://youtu.be/3s-RfwvijpY?t=206)
-   - Note 2: replace the csproj path to the relative path of your csproj and rename `Portfolio.dll` to the name of your csproj
-   - Note 3: set the .net version to the version you're using
+   - Note 2: set the .net version to the version you're using
+   - Note 3: replace the csproj path to the relative path of your csproj and rename `Portfolio.dll` to the name of your csproj
 
 3. Push your changes to github
 
